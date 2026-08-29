@@ -1,0 +1,9 @@
+{
+    "name": "Jaber",
+    "type": "winter-plugin",
+    "description": "Simply removes the applcation's front-end and redirects it to the admin area.",
+    "require": {
+        "composer/installers": "~1.0",
+        "october/system": ">=2.0"
+    }
+}

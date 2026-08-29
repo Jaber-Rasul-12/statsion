@@ -1,0 +1,32 @@
+<!-- Text -->
+<?php if ($this->previewMode): ?>
+    <span class="form-control"><?= $field->value ? e($field->value) : '&nbsp;' ?></span>
+<?php else: ?>
+    <div
+        id="<?= $this->getId() ?>"
+        data-control="multilingual"
+        data-copy-confirm="<?= e(trans('winter.translate::lang.locale.copy_confirm')); ?>"
+        data-default-locale="<?= $defaultLocale->code ?>"
+        data-placeholder-field="#<?= $field->getId('placeholderField') ?>"
+        class="field-multilingual field-multilingual-text dropdown">
+
+        <input
+            type="text"
+            name="<?= $field->getName() ?>"
+            id="<?= $field->getId('placeholderField') ?>"
+            value="<?= e($field->value) ?>"
+            placeholder="<?= e(trans($field->placeholder)) ?>"
+            class="form-control"
+            autocomplete="off"
+            <?= $field->hasAttribute('maxlength') ? '' : 'maxlength="255"' ?>
+            <?= $field->getAttributes() ?>
+        />
+
+        <?= $this->makeMLPartial('locale_copy') ?>
+
+        <?= $this->makeMLPartial('locale_selector') ?>
+
+        <?= $this->makeMLPartial('locale_values') ?>
+
+    </div>
+<?php endif ?>

@@ -1,0 +1,31 @@
+fields:
+    layout_mode:
+        label: jaber.rtler::lang.setting.layout_mode
+        type: dropdown
+        default: language
+        options:
+            never: jaber.rtler::lang.setting.never
+            always: jaber.rtler::lang.setting.always
+            language: jaber.rtler::lang.setting.language_based
+        span: auto
+
+    editor_mode:
+        label: jaber.rtler::lang.setting.editor_mode
+        type: dropdown
+        default: language
+        options:
+            never: jaber.rtler::lang.setting.never
+            always: jaber.rtler::lang.setting.always
+            language: jaber.rtler::lang.setting.language_based
+        span: auto
+        comment: jaber.rtler::lang.setting.editor_mode_comment
+    markdown_editor_mode:
+        label: jaber.rtler::lang.setting.markdown_editor_mode
+        type: dropdown
+        default: language
+        options:
+            never: jaber.rtler::lang.setting.never
+            always: jaber.rtler::lang.setting.always
+            language: jaber.rtler::lang.setting.language_based
+        span: auto
+        comment: jaber.rtler::lang.setting.markdown_editor_mode_comment

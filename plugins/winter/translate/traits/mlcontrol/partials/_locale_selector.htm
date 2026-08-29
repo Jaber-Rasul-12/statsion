@@ -1,0 +1,27 @@
+<!-- Language selector -->
+<div class="dropdown ml-dropdown">
+    <button
+        class="btn btn-default ml-btn"
+        data-toggle="dropdown"
+        data-active-locale
+        type="button">
+    </button>
+
+    <ul
+        class="dropdown-menu pull-right ml-dropdown-menu"
+        role="menu"
+        data-locale-dropdown
+        data-dropdown-title="<?= e(trans('winter.translate::lang.locale.select_label')) ?>">
+        <?php foreach ($locales as $code => $name): ?>
+        <li role="presentation">
+            <a
+                role="menuitem"
+                tabindex="-1"
+                data-switch-locale="<?= $code ?>"
+                href="javascript:;">
+                <?= $name ?>
+            </a>
+        </li>
+        <?php endforeach ?>
+    </ul>
+</div>

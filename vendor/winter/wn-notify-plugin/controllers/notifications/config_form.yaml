@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: winter.notify::lang.notifications.notification_rule
+form: $/winter/notify/models/notificationrule/fields.yaml
+modelClass: Winter\Notify\Models\NotificationRule
+defaultRedirect: winter/notify/notifications
+
+create:
+    redirect: winter/notify/notifications/update/:id
+    redirectClose: winter/notify/notifications
+
+update:
+    redirect: winter/notify/notifications
+    redirectClose: winter/notify/notifications
