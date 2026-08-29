@@ -1,0 +1,201 @@
+<?php
+/**
+ * @var array $products
+ * @var string $today
+ * @var string $firstDayOfMonth
+ */
+?>
+
+<div class="reports-wrapper">
+    
+    <!-- رأس الصفحة -->
+    <div class="reports-header">
+        <h2><i class="fa fa-chart-bar"></i> نظام التقارير</h2>
+        <div class="header-actions">
+            <button class="btn btn-print" onclick="reports.printReport()">
+                <i class="fa fa-print"></i> طباعة
+            </button>
+            <button class="btn btn-export" onclick="reports.exportExcel()">
+                <i class="fa fa-file-excel"></i> تصدير Excel
+            </button>
+        </div>
+    </div>
+    
+    <!-- لوحة التحكم -->
+    <div class="reports-controls">
+        <div class="controls-row">
+            <div class="control-group">
+                <label>نوع التقرير</label>
+                <select id="reportType" class="form-control">
+                    <option value="daily">يومي</option>
+                    <option value="monthly" selected>شهري</option>
+                    <option value="yearly">سنوي</option>
+                    <option value="custom">مخصص</option>
+                </select>
+            </div>
+            
+            <div class="control-group" id="dateControl">
+                <label>التاريخ</label>
+                <input type="date" id="reportDate" class="form-control" value="<?= $today ?>">
+            </div>
+            
+            <div class="control-group" id="monthControl" style="display:none;">
+                <label>الشهر</label>
+                <input type="month" id="reportMonth" class="form-control" value="<?= date('Y-m') ?>">
+            </div>
+            
+            <div class="control-group" id="yearControl" style="display:none;">
+                <label>السنة</label>
+                <input type="number" id="reportYear" class="form-control" value="<?= date('Y') ?>" min="2020" max="<?= date('Y') ?>">
+            </div>
+            
+            <div class="control-group" id="customDateControl" style="display:none;">
+                <div class="date-range">
+                    <div>
+                        <label>من</label>
+                        <input type="date" id="startDate" class="form-control" value="<?= $firstDayOfMonth ?>">
+                    </div>
+                    <div>
+                        <label>إلى</label>
+                        <input type="date" id="endDate" class="form-control" value="<?= $today ?>">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label>المنتج</label>
+                <select id="productFilter" class="form-control">
+                    <option value="">جميع المنتجات</option>
+                    <?php foreach ($products as $product): ?>
+                        <option value="<?= $product->id ?>"><?= e($product->name) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>&nbsp;</label>
+                <button class="btn btn-primary" id="generateReportBtn">
+                    <i class="fa fa-search"></i> عرض التقرير
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- محتوى التقرير -->
+    <div id="reportContent">
+        
+        <!-- الإحصائيات السريعة -->
+        <div class="summary-cards" id="summaryCards">
+            <div class="summary-card">
+                <div class="summary-icon" style="background: #e8f0fe;">
+                    <i class="fa fa-money" style="color: #1a73e8;"></i>
+                </div>
+                <div class="summary-info">
+                    <span class="summary-label">إجمالي المبيعات</span>
+                    <span class="summary-value" id="totalSales">0.00</span>
+                    <span class="summary-currency" id="totalCurrency">$</span>
+                </div>
+            </div>
+            
+            <div class="summary-card">
+                <div class="summary-icon" style="background: #e6f4ea;">
+                    <i class="fa fa-cubes" style="color: #34a853;"></i>
+                </div>
+                <div class="summary-info">
+                    <span class="summary-label">إجمالي الكمية</span>
+                    <span class="summary-value" id="totalQuantity">0</span>
+                </div>
+            </div>
+            
+            <div class="summary-card">
+                <div class="summary-icon" style="background: #fef7e0;">
+                    <i class="fa fa-shopping-cart" style="color: #f9ab00;"></i>
+                </div>
+                <div class="summary-info">
+                    <span class="summary-label">عدد العمليات</span>
+                    <span class="summary-value" id="totalTransactions">0</span>
+                </div>
+            </div>
+            
+            <div class="summary-card">
+                <div class="summary-icon" style="background: #fce8e6;">
+                    <i class="fa fa-calculator" style="color: #ea4335;"></i>
+                </div>
+                <div class="summary-info">
+                    <span class="summary-label">متوسط البيع</span>
+                    <span class="summary-value" id="averageSale">0.00</span>
+                    <span class="summary-currency" id="avgCurrency">$</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الرسم البياني -->
+        <div class="chart-container">
+            <div class="chart-header">
+                <h4><i class="fa fa-line-chart"></i> تحليل المبيعات</h4>
+            </div>
+            <div class="chart-body">
+                <canvas id="salesChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- جدول المبيعات -->
+        <div class="table-container">
+            <div class="table-header">
+                <h4><i class="fa fa-table"></i> تفاصيل المبيعات</h4>
+                <span class="table-count" id="recordCount">0 سجل</span>
+            </div>
+            <div class="table-body">
+                <table class="reports-table" id="salesTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>المنتج</th>
+                            <th>الكمية</th>
+                            <th>السعر</th>
+                            <th>العملة</th>
+                            <th>التاريخ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <tr>
+                            <td colspan="6" class="text-center">لا توجد بيانات</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- تحليل المنتجات -->
+        <div class="product-analysis" id="productAnalysis" style="display:none;">
+            <div class="analysis-header">
+                <h4><i class="fa fa-pie-chart"></i> تحليل المنتجات</h4>
+            </div>
+            <div class="analysis-body" id="analysisBody">
+                <!-- يتم التحميل عبر AJAX -->
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<!-- نافذة الطباعة -->
+<div class="print-modal" id="printModal" style="display:none;">
+    <div class="print-content">
+        <div class="print-header">
+            <h2><i class="fa fa-print"></i> تقرير المبيعات</h2>
+            <button class="print-close" onclick="reports.closePrint()">×</button>
+        </div>
+        <div class="print-body" id="printBody">
+            <!-- يتم ملء البيانات هنا -->
+        </div>
+        <div class="print-footer">
+            <button class="btn btn-primary" onclick="window.print()">
+                <i class="fa fa-print"></i> طباعة
+            </button>
+            <button class="btn btn-secondary" onclick="reports.closePrint()">
+                <i class="fa fa-times"></i> إغلاق
+            </button>
+        </div>
+    </div>
+</div>

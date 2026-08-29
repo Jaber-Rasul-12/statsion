@@ -1,0 +1,588 @@
+/* ========================================
+   نظام التقارير - Statsion
+   ======================================== */
+
+.reports-wrapper {
+    padding: 20px;
+    background: #f0f2f6;
+    min-height: calc(100vh - 60px);
+}
+
+/* ===== رأس الصفحة ===== */
+.reports-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.reports-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #202124;
+}
+
+.reports-header h2 i {
+    color: #1a73e8;
+    margin-right: 10px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-print {
+    padding: 10px 20px;
+    background: #1a73e8;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-print:hover {
+    background: #1557b0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+}
+
+.btn-export {
+    padding: 10px 20px;
+    background: #34a853;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-export:hover {
+    background: #2d9248;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 168, 83, 0.3);
+}
+
+/* ===== لوحة التحكم ===== */
+.reports-controls {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    margin-bottom: 20px;
+}
+
+.controls-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    align-items: end;
+}
+
+.control-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #5f6368;
+    margin-bottom: 4px;
+}
+
+.control-group .form-control {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #e8eaed;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.control-group .form-control:focus {
+    border-color: #1a73e8;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+}
+
+.date-range {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.date-range label {
+    font-size: 12px;
+}
+
+.btn-primary {
+    padding: 10px 24px;
+    background: #1a73e8;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-primary:hover {
+    background: #1557b0;
+}
+
+/* ===== بطاقات الإحصائيات ===== */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.summary-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+}
+
+.summary-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.summary-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-label {
+    font-size: 12px;
+    color: #80868b;
+    font-weight: 500;
+}
+
+.summary-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #202124;
+    line-height: 1.2;
+}
+
+.summary-currency {
+    font-size: 14px;
+    color: #80868b;
+    margin-left: 2px;
+}
+
+/* ===== الرسم البياني ===== */
+.chart-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.chart-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid #e8eaed;
+}
+
+.chart-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #202124;
+}
+
+.chart-header h4 i {
+    color: #1a73e8;
+    margin-right: 8px;
+}
+
+.chart-body {
+    padding: 20px;
+    height: 300px;
+}
+
+/* ===== جدول المبيعات ===== */
+.table-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.table-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid #e8eaed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.table-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #202124;
+}
+
+.table-header h4 i {
+    color: #1a73e8;
+    margin-right: 8px;
+}
+
+.table-count {
+    font-size: 13px;
+    color: #80868b;
+    background: #f1f3f4;
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+.table-body {
+    padding: 0;
+    overflow-x: auto;
+}
+
+.reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.reports-table thead {
+    background: #f8f9fa;
+}
+
+.reports-table th {
+    padding: 12px 16px;
+    text-align: right;
+    font-weight: 600;
+    color: #5f6368;
+    border-bottom: 2px solid #e8eaed;
+    white-space: nowrap;
+}
+
+.reports-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #f1f3f4;
+    color: #202124;
+}
+
+.reports-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.reports-table .text-center {
+    text-align: center;
+    color: #80868b;
+    padding: 40px 20px;
+}
+
+/* ===== تحليل المنتجات ===== */
+.product-analysis {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.analysis-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid #e8eaed;
+}
+
+.analysis-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #202124;
+}
+
+.analysis-header h4 i {
+    color: #1a73e8;
+    margin-right: 8px;
+}
+
+.analysis-body {
+    padding: 16px 20px;
+}
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.analysis-item {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px solid #e8eaed;
+}
+
+.analysis-item .product-name {
+    font-weight: 600;
+    color: #202124;
+    margin-bottom: 4px;
+}
+
+.analysis-item .product-stats {
+    font-size: 13px;
+    color: #5f6368;
+}
+
+.analysis-item .product-stats strong {
+    color: #202124;
+}
+
+/* ===== نافذة الطباعة ===== */
+.print-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.print-modal.active {
+    display: flex;
+}
+
+.print-content {
+    background: #ffffff;
+    border-radius: 16px;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.print-header {
+    padding: 16px 24px;
+    border-bottom: 2px solid #e8eaed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.print-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #202124;
+}
+
+.print-header h2 i {
+    color: #1a73e8;
+    margin-right: 10px;
+}
+
+.print-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: #f1f3f4;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.print-close:hover {
+    background: #e8eaed;
+}
+
+.print-body {
+    padding: 24px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.print-footer {
+    padding: 16px 24px;
+    border-top: 2px solid #e8eaed;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.btn-secondary {
+    padding: 10px 20px;
+    background: #f1f3f4;
+    color: #3c4043;
+    border: 2px solid #e8eaed;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-secondary:hover {
+    background: #e8eaed;
+}
+
+/* ===== تنسيقات الطباعة ===== */
+@media print {
+    .reports-controls,
+    .header-actions,
+    .btn-primary,
+    .btn-refresh,
+    .print-footer {
+        display: none !important;
+    }
+    
+    .print-modal {
+        position: static !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+    
+    .print-content {
+        max-height: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+    
+    .print-header {
+        border-bottom: 2px solid #202124 !important;
+    }
+    
+    .print-body {
+        padding: 20px !important;
+    }
+    
+    .reports-wrapper {
+        padding: 0 !important;
+        background: #ffffff !important;
+    }
+    
+    .summary-cards {
+        page-break-inside: avoid;
+    }
+    
+    .chart-container {
+        page-break-inside: avoid;
+    }
+    
+    .table-container {
+        page-break-inside: avoid;
+    }
+}
+
+/* ===== التجاوب ===== */
+@media (max-width: 768px) {
+    .reports-wrapper {
+        padding: 12px;
+    }
+    
+    .reports-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .header-actions {
+        flex-direction: column;
+    }
+    
+    .controls-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .date-range {
+        grid-template-columns: 1fr;
+    }
+    
+    .summary-cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    
+    .summary-card {
+        padding: 12px 14px;
+    }
+    
+    .summary-value {
+        font-size: 18px;
+    }
+    
+    .chart-body {
+        height: 200px;
+    }
+    
+    .reports-table {
+        font-size: 12px;
+    }
+    
+    .reports-table th,
+    .reports-table td {
+        padding: 8px 10px;
+    }
+    
+    .analysis-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .print-content {
+        max-height: 100vh;
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+}

@@ -9,9 +9,23 @@ return [
         'inputs' => 'Inputs',
         'menu' => 'Statsion',
         'select' => 'Select',
-        
+        'quick_sale' => 'Quick Sale',
         'log_changes_statsion' => 'Log changes',
         'message_delete' => 'You cannot delete this product because it has points',
+        'reports' => 'Reports',
+
+         'quick_sale' => 'بيع سريع',
+        'quick_sale_success' => 'تمت عملية البيع بنجاح!',
+        'sale_details' => 'تفاصيل البيع',
+        'sale_history' => 'سجل البيع السريع',
+        'search_product' => 'ابحث عن منتج...',
+        'select_input' => 'اختر المدخل',
+        'enter_quantity' => 'أدخل الكمية',
+        'total_price' => 'السعر الإجمالي',
+        'confirm_sale' => 'تأكيد البيع',
+        'date' => 'التاريخ',
+        'no_history' => 'لا توجد عمليات بيع سابقة',
+        'load_more' => 'تحميل المزيد',
     ],
     'model' => [
         'point' => [

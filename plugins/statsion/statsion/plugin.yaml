@@ -16,6 +16,12 @@ permissions:
     points:
         tab: 'statsion.statsion::lang.plugin.statsion'
         label: 'statsion.statsion::lang.plugin.points'
+    quick_sale:
+        tab: 'statsion.statsion::lang.plugin.statsion'
+        label: 'statsion.statsion::lang.plugin.quick_sale'
+    reports:
+        tab: 'statsion.statsion::lang.plugin.statsion'
+        label: 'statsion.statsion::lang.plugin.reports'
     log_changes_statsion:
         tab: 'statsion.statsion::lang.plugin.statsion'
         label: 'statsion.statsion::lang.plugin.log_changes_statsion'
@@ -45,3 +51,15 @@ navigation:
                 icon: icon-star
                 permissions:
                     - points
+            quick_sale:
+                label: 'statsion.statsion::lang.plugin.quick_sale'
+                url: statsion/statsion/quicksale
+                icon: icon-bolt
+                permissions:
+                    - quick_sale
+            reports:
+                label: 'statsion.statsion::lang.plugin.reports'
+                url: Statsion/Statsion/reports
+                icon: icon-chart-bar
+                permissions: 
+                    - reports
