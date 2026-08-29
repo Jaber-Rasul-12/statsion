@@ -1,0 +1,54 @@
+fields:
+    product:
+        label: 'statsion.statsion::lang.model.point.product'
+        span: auto
+        type: relation
+        select: name
+        placeholder: 'statsion.statsion::lang.plugin.select'
+
+    input_id:
+        label: 'statsion.statsion::lang.model.point.input'
+        span: auto
+        type: dropdown
+        # nameFrom: FullQualityName
+        dependsOn: product
+        placeholder: 'statsion.statsion::lang.plugin.select'
+    avilable_qy:
+        label: 'statsion.statsion::lang.model.point.avilable_qy'
+        span: auto
+        type: number
+        readOnly: true
+        dependsOn: 
+            - product
+            - input_id
+    avilable_selling_price:
+        label: 'statsion.statsion::lang.model.point.avilable_selling_price'
+        span: auto
+        type: number
+        readOnly: true
+        dependsOn: 
+            - product
+            - input_id
+    currency:
+        label: 'statsion.statsion::lang.model.point.currency'
+        span: auto
+        type: dropdown
+        dependsOn: 
+            - product
+            - input_id
+        placeholder: 'statsion.statsion::lang.plugin.select'
+        # options:
+        #     USD: 'statsion.statsion::lang.model.point.USD'
+        #     SYR: 'statsion.statsion::lang.model.point.SYR'
+    qt:
+        label: 'statsion.statsion::lang.model.point.qt'
+        span: auto
+        type: number
+    price:
+        label: 'statsion.statsion::lang.model.point.price'
+        span: auto
+        type: number
+        dependsOn: 
+            - product
+            - input_id
+            - qt

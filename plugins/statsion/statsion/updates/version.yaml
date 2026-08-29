@@ -1,0 +1,11 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table statsion_statsion_products'
+    - builder_table_create_statsion_statsion_products.php
+1.0.3:
+    - 'Created table statsion_statsion_inputs'
+    - builder_table_create_statsion_statsion_inputs.php
+1.0.4:
+    - 'Created table statsion_statsion_points'
+    - builder_table_create_statsion_statsion_points.php

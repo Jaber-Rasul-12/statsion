@@ -1,0 +1,36 @@
+fields:
+    product:
+        label: 'statsion.statsion::lang.model.input.product'
+        span: auto
+        type: relation
+        select: name
+        placeholder: 'statsion.statsion::lang.plugin.select'
+
+    buying_price:
+        label: 'statsion.statsion::lang.model.input.buying_price'
+        span: auto
+        type: number
+    selling_price:
+        label: 'statsion.statsion::lang.model.input.selling_price'
+        span: auto
+        type: number
+    qt:
+        label: 'statsion.statsion::lang.model.input.qt'
+        span: auto
+        type: number
+    currency:
+        label: 'statsion.statsion::lang.model.input.currency'
+        span: auto
+        type: dropdown
+        placeholder: 'statsion.statsion::lang.plugin.select'
+        options:
+            USD: 'statsion.statsion::lang.model.input.USD'
+            SYR: 'statsion.statsion::lang.model.input.SYR'
+        _logbook@update:
+            type: jacob_logbook_log
+            limitPerPage: 10 
+            startPage: 1 
+            tab: 'statsion.statsion::lang.plugin.log_changes_statsion'
+            permissions: log_changes_statsion
+            showUndoChangesButton: true 
+            refreshFormAfterUndo: true  

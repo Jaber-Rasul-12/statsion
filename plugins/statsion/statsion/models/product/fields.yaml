@@ -1,0 +1,5 @@
+fields:
+    name:
+        label: 'statsion.statsion::lang.model.product.name'
+        span: auto
+        type: text

@@ -1,0 +1,31 @@
+columns:
+    id:
+        label: 'statsion.statsion::lang.model.input.id'
+        type: number
+    product:
+        label: 'statsion.statsion::lang.model.input.product'
+        relation: product
+        select: name
+
+    buying_price:
+        label: 'statsion.statsion::lang.model.input.buying_price'
+        type: text
+    selling_price:
+        label: 'statsion.statsion::lang.model.input.selling_price'
+        type: text
+    qt:
+        label: 'statsion.statsion::lang.model.input.qt'
+        type: text
+    currency_lists:
+        label: 'statsion.statsion::lang.model.input.currency'
+        type: text
+    residual:
+        label: 'statsion.statsion::lang.model.input.residual'
+        type: partial
+        path: residual
+    created_at:
+        label: 'statsion.statsion::lang.model.input.created_at'
+        type: datetime
+    updated_at:
+        label: 'statsion.statsion::lang.model.input.updated_at'
+        type: datetime

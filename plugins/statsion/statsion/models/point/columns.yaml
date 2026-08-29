@@ -1,0 +1,25 @@
+columns:
+    id:
+        label: 'statsion.statsion::lang.model.point.id'
+        type: number
+    input[FullQualityName]:
+        label: 'statsion.statsion::lang.model.point.input'
+    qt:
+        label: 'statsion.statsion::lang.model.point.qt'
+        type: text
+    price:
+        label: 'statsion.statsion::lang.model.point.price'
+        type: text
+    currency_lists:
+        label: 'statsion.statsion::lang.model.point.currency'
+        type: number
+    product:
+        label: 'statsion.statsion::lang.model.point.product'
+        relation: product
+        select: name
+    created_at:
+        label: 'statsion.statsion::lang.model.point.created_at'
+        type: datetime
+    updated_at:
+        label: 'statsion.statsion::lang.model.point.updated_at'
+        type: datetime

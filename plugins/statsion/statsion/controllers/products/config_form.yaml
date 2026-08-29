@@ -1,0 +1,10 @@
+name: 'statsion.statsion::lang.controller.products.products'
+form: $/statsion/statsion/models/product/fields.yaml
+modelClass: Statsion\Statsion\Models\Product
+defaultRedirect: statsion/statsion/products
+create:
+    redirect: 'statsion/statsion/products/update/:id'
+    redirectClose: statsion/statsion/products
+update:
+    redirect: statsion/statsion/products
+    redirectClose: statsion/statsion/products

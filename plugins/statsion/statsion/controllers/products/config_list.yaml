@@ -1,0 +1,12 @@
+list: $/statsion/statsion/models/product/columns.yaml
+modelClass: Statsion\Statsion\Models\Product
+title: 'statsion.statsion::lang.controller.products.products'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'statsion/statsion/products/update/:id'

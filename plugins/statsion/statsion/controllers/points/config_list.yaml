@@ -1,0 +1,12 @@
+list: $/statsion/statsion/models/point/columns.yaml
+modelClass: Statsion\Statsion\Models\Point
+title: 'statsion.statsion::lang.controller.points.points'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'statsion/statsion/points/update/:id'

@@ -1,0 +1,10 @@
+name: 'statsion.statsion::lang.controller.inputs.inputs'
+form: $/statsion/statsion/models/input/fields.yaml
+modelClass: Statsion\Statsion\Models\Input
+defaultRedirect: statsion/statsion/inputs
+create:
+    redirect: 'statsion/statsion/inputs/update/:id'
+    redirectClose: statsion/statsion/inputs
+update:
+    redirect: statsion/statsion/inputs
+    redirectClose: statsion/statsion/inputs

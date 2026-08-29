@@ -1,0 +1,14 @@
+columns:
+    id:
+        label: 'statsion.statsion::lang.model.product.id'
+        type: number
+    name:
+        label: 'statsion.statsion::lang.model.product.name'
+        type: text
+        searchable: true
+    created_at:
+        label: 'statsion.statsion::lang.model.product.created_at'
+        type: datetime
+    updated_at:
+        label: 'statsion.statsion::lang.model.product.updated_at'
+        type: datetime

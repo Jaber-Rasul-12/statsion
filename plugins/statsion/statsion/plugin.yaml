@@ -1,0 +1,47 @@
+plugin:
+    name: 'statsion.statsion::lang.plugin.name'
+    description: 'statsion.statsion::lang.plugin.description'
+    author: Statsion
+    replaces: {  }
+permissions:
+    menu:
+        tab: 'statsion.statsion::lang.plugin.statsion'
+        label: 'statsion.statsion::lang.plugin.menu'
+    products:
+        tab: 'statsion.statsion::lang.plugin.statsion'
+        label: 'statsion.statsion::lang.plugin.products'
+    inputs:
+        tab: 'statsion.statsion::lang.plugin.statsion'
+        label: 'statsion.statsion::lang.plugin.inputs'
+    points:
+        tab: 'statsion.statsion::lang.plugin.statsion'
+        label: 'statsion.statsion::lang.plugin.points'
+    log_changes_statsion:
+        tab: 'statsion.statsion::lang.plugin.statsion'
+        label: 'statsion.statsion::lang.plugin.log_changes_statsion'
+navigation:
+    menu:
+        label: 'statsion.statsion::lang.plugin.menu'
+        url: statsion/statsion/points
+        icon: icon-dashboard
+        permissions:
+            - menu
+        sideMenu:
+            products:
+                label: 'statsion.statsion::lang.plugin.products'
+                url: statsion/statsion/products
+                icon: icon-boxes
+                permissions:
+                    - products
+            inputs:
+                label: 'statsion.statsion::lang.plugin.inputs'
+                url: statsion/statsion/inputs
+                icon: icon-edit
+                permissions:
+                    - inputs
+            points:
+                label: 'statsion.statsion::lang.plugin.points'
+                url: statsion/statsion/points
+                icon: icon-star
+                permissions:
+                    - points

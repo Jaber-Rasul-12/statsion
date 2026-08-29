@@ -1,0 +1,10 @@
+name: 'statsion.statsion::lang.controller.points.points'
+form: $/statsion/statsion/models/point/fields.yaml
+modelClass: Statsion\Statsion\Models\Point
+defaultRedirect: statsion/statsion/points
+create:
+    redirect: 'statsion/statsion/points/update/:id'
+    redirectClose: statsion/statsion/points
+update:
+    redirect: statsion/statsion/points
+    redirectClose: statsion/statsion/points
