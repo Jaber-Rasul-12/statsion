@@ -1,14 +1,76 @@
 <?php
 
 return [
-    'models' => [
-        'quicksale' => [
-            'label' => 'Quick Sale',
-            'label_plural' => 'Quick Sales',
+    'plugin' => [
+        'name' => 'Statsion',
+        'description' => '',
+        'points' => 'نقاط البيع',
+        'products' => 'المواد',
+        'inputs' => 'الكميات الواردة',
+        'menu' => 'نظام الكازية',
+        'select' => 'اختر',
+        'quick_sale' => 'بيع سريع',
+        'log_changes_statsion' => 'تسجيل التغييرات',
+        'message_delete' => 'لا يمكنك حذف هذا المادة لأنه يحتوي على نقاط بيع',
+        'reports' => 'التقارير',
+        'quick_sale_success' => 'تمت عملية البيع بنجاح!',
+        'sale_details' => 'تفاصيل البيع',
+        'sale_history' => 'سجل البيع السريع',
+        'search_product' => 'ابحث عن منتج...',
+        'select_input' => 'اختر المدخل',
+        'enter_quantity' => 'أدخل الكمية',
+        'total_price' => 'السعر الإجمالي',
+        'confirm_sale' => 'تأكيد البيع',
+        'date' => 'التاريخ',
+        'no_history' => 'لا توجد عمليات بيع سابقة',
+        'load_more' => 'تحميل المزيد',
+
+    ],
+    'model' => [
+        'point' => [
+            'id' => 'الرقم',
+            'input' => 'الكميات الواردة',
+            'qt' => 'الكمية',
+            'price' => 'السعر',
+            'product' => 'المادة',
+            'USD' => 'دولار',
+            'SYR' => 'ليرة سورية',
+            'avilable_qy' => 'الكمية المتاحة',
+            'avilable_selling_price' => 'سعر البيع',
+            'currency' => 'العملة',
+            'product_id' => 'رقم المادة',
+            'created_at' => 'تاريخ الإنشاء',
+            'updated_at' => 'تاريخ التحديث',
         ],
-        'report' => [
-            'label' => 'Report',
-            'label_plural' => 'Reports',
+        'product' => [
+            'id' => 'الرقم',
+            'name' => 'الاسم',
+            'created_at' => 'تاريخ الإنشاء',
+            'updated_at' => 'تاريخ التحديث',
+        ],
+        'input' => [
+            'id' => 'الرقم',
+            'product' => 'المادة',
+            'buying_price' => 'سعر الشراء',
+            'selling_price' => 'سعر البيع',
+            'qt' => 'الكمية',
+            'residual' => 'المتبقي',
+            'USD' => 'دولار',
+            'SYR' => 'ليرة سورية',
+            'currency' => 'العملة',
+            'created_at' => 'تاريخ الإنشاء',
+            'updated_at' => 'تاريخ التحديث',
+        ],
+    ],
+    'controller' => [
+        'products' => [
+            'products' => 'المادةات',
+        ],
+        'inputs' => [
+            'inputs' => 'المدخلات',
+        ],
+        'points' => [
+            'points' => 'نقاط البيع',
         ],
     ],
 ];
